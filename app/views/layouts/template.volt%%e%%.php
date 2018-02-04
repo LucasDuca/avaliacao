@@ -1,4 +1,4 @@
-<html>
+a:3:{i:0;s:1433:"<html>
     <head>
         <title>Avaliação InfoIdéias</title>
         <meta charset="utf-8">
@@ -15,17 +15,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    
+                   
                 </div>
                 <div id="navbar" class="navbar-collapse collapse navbar-right">
                     <ul class="nav navbar-nav">
-                    <li class="active">{{ link_to(['for':'site.inicio'], 'Início') }}</li>
-                    <li>{{ link_to(['for':'site.imovel.listar'], 'Cadastro de Imóveis') }}</li>
+                    <li class="active"><?= $this->tag->linkTo([['for' => 'site.inicio'], 'Início']) ?></li>
+                    <li><?= $this->tag->linkTo([['for' => 'site.imovel.listar'], 'Cadastro de Imóveis']) ?></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        {% block content %}{% endblock %}
+        ";s:7:"content";N;i:1;s:436:"
         <!-- Styles/Scripts-->
         <link type="text/css" rel="stylesheet" href="/css/styles.css">
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
@@ -33,4 +33,4 @@
         <script type="text/javascript" src="/js/jquery.mask.js"></script>
         <!--<script type="text/javascript" src="/js/scripts.js"></script>-->
     </body>
-</html>
+</html>";}

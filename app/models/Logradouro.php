@@ -1,6 +1,6 @@
 <?php
 
-class ImovelImagem extends \Phalcon\Mvc\Model
+class Logradouro extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -15,16 +15,23 @@ class ImovelImagem extends \Phalcon\Mvc\Model
     /**
      *
      * @var integer
-     * @Column(column="imovel_id", type="integer", length=10, nullable=false)
+     * @Column(column="bairro_id", type="integer", length=10, nullable=false)
      */
-    public $imovel_id;
+    public $bairro_id;
 
     /**
      *
      * @var string
-     * @Column(column="caminho", type="string", nullable=false)
+     * @Column(column="tipo", type="string", length=15, nullable=false)
      */
-    public $caminho;
+    public $tipo;
+
+    /**
+     *
+     * @var string
+     * @Column(column="nome", type="string", length=70, nullable=false)
+     */
+    public $nome;
 
     /**
      * Initialize method for model.
@@ -32,8 +39,9 @@ class ImovelImagem extends \Phalcon\Mvc\Model
     public function initialize()
     {
         $this->setSchema("avaliacao1");
-        $this->setSource("Imovel_Imagem");
-        $this->belongsTo('imovel_id', '\Imovel', 'id', ['alias' => 'Imovel']);
+        $this->setSource("logradouro");
+        $this->hasMany('id', 'Imovel', 'logradouro_id', ['alias' => 'Imovel']);
+        $this->belongsTo('bairro_id', '\Bairro', 'id', ['alias' => 'Bairro']);
     }
 
     /**
@@ -43,14 +51,14 @@ class ImovelImagem extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'Imovel_Imagem';
+        return 'logradouro';
     }
 
     /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return ImovelImagem[]|ImovelImagem|\Phalcon\Mvc\Model\ResultSetInterface
+     * @return Logradouro[]|Logradouro|\Phalcon\Mvc\Model\ResultSetInterface
      */
     public static function find($parameters = null)
     {
@@ -61,7 +69,7 @@ class ImovelImagem extends \Phalcon\Mvc\Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return ImovelImagem|\Phalcon\Mvc\Model\ResultInterface
+     * @return Logradouro|\Phalcon\Mvc\Model\ResultInterface
      */
     public static function findFirst($parameters = null)
     {

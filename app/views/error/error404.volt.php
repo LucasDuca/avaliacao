@@ -15,17 +15,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    
+            
                 </div>
                 <div id="navbar" class="navbar-collapse collapse navbar-right">
                     <ul class="nav navbar-nav">
-                    <li class="active">{{ link_to(['for':'site.inicio'], 'Início') }}</li>
-                    <li>{{ link_to(['for':'site.imovel.listar'], 'Cadastro de Imóveis') }}</li>
+                    <li class="active"><?= $this->tag->linkTo([['for' => 'site.inicio'], 'Início']) ?></li>
+                    <li><?= $this->tag->linkTo([['for' => 'site.imovel.listar'], 'Cadastro de Imóveis']) ?></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        {% block content %}{% endblock %}
+        
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h1>Página não encontrada</h1>
+        </div>
+    </div>
+</div>
+
         <!-- Styles/Scripts-->
         <link type="text/css" rel="stylesheet" href="/css/styles.css">
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>

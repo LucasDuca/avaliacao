@@ -1,6 +1,8 @@
 <?php
 
-class Imovel extends \Phalcon\Mvc\Model
+use Phalcon\Mvc\Model;
+
+class Imovel extends Model
 {
 
     /**

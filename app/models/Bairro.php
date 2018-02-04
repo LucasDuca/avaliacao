@@ -1,6 +1,6 @@
 <?php
 
-class ImovelImagem extends \Phalcon\Mvc\Model
+class Bairro extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -14,17 +14,10 @@ class ImovelImagem extends \Phalcon\Mvc\Model
 
     /**
      *
-     * @var integer
-     * @Column(column="imovel_id", type="integer", length=10, nullable=false)
-     */
-    public $imovel_id;
-
-    /**
-     *
      * @var string
-     * @Column(column="caminho", type="string", nullable=false)
+     * @Column(column="nome", type="string", length=20, nullable=false)
      */
-    public $caminho;
+    public $nome;
 
     /**
      * Initialize method for model.
@@ -32,8 +25,8 @@ class ImovelImagem extends \Phalcon\Mvc\Model
     public function initialize()
     {
         $this->setSchema("avaliacao1");
-        $this->setSource("Imovel_Imagem");
-        $this->belongsTo('imovel_id', '\Imovel', 'id', ['alias' => 'Imovel']);
+        $this->setSource("bairro");
+        $this->hasMany('id', 'Logradouro', 'bairro_id', ['alias' => 'Logradouro']);
     }
 
     /**
@@ -43,14 +36,14 @@ class ImovelImagem extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'Imovel_Imagem';
+        return 'bairro';
     }
 
     /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return ImovelImagem[]|ImovelImagem|\Phalcon\Mvc\Model\ResultSetInterface
+     * @return Bairro[]|Bairro|\Phalcon\Mvc\Model\ResultSetInterface
      */
     public static function find($parameters = null)
     {
@@ -61,7 +54,7 @@ class ImovelImagem extends \Phalcon\Mvc\Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return ImovelImagem|\Phalcon\Mvc\Model\ResultInterface
+     * @return Bairro|\Phalcon\Mvc\Model\ResultInterface
      */
     public static function findFirst($parameters = null)
     {
